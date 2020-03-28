@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.list {
+  font-family: sans-serif;
+  font-size: 25px;
+  margin: 20px 0 0 120px;;
+}
+
+.list li {
+  margin-bottom: 10px;
+}
+
+.buttons {
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.buttons button {
+  border: none;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  font-size: 15px;
+  width: 175px;
+  margin-bottom: 5px;
+  transition: 0.1s;
+}
+
+.buttons button:active {
+  transform: scale(0.9);
+}
