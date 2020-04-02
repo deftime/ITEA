@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Attr</title>
+    <style>
+        /* a[target] {
+            background-color: yellow;
+        }
+        a[target='_blank'] {
+            background-color: red;
+        } */
+    </style>
+</head>
+<body>
+    <a href="#" target="_top">w3schools.com</a>
+    <a href="http://www.google.com" target="_blank">google.com</a>
+    <a href="http://www.wikipedia.org" target="_self">wikipedia.org</a>
+    <a href="#">Someting</a>
+
+<script>
+  var allTargets = document.querySelectorAll('a[target]');
+  for (var key of allTargets) {
+    key.style.backgroundColor = 'yellow';
+  }
+
+  document.querySelector('a[target="_blank"]').style.backgroundColor = 'red';
+
+  //-------------------------------------------
+  var allPage = document.querySelectorAll('*');
+
+  for (let key of allPage) {
+    if (key.hasAttribute('id')) {
+      key.style.cssText += ' margin-top: 10px; background: red;';
+    }
+    if (key.hasAttribute('class')) {
+      key.classList.add('newclass');
+      var check = 'find!';
+    }
+  }
+
+  if (check) {
+    console.log(getComputedStyle(document.querySelector('.newclass')));
+  }
+</script>
+</body>
+</html>

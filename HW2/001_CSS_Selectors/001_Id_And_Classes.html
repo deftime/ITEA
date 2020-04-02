@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Id and classes</title>
+    <style>
+        /* #id1 {
+            color: red;
+        }
+        div.class1 {
+            color: blue;
+            font-size: 14px;
+            text-decoration: underline;
+        }         */
+    </style>
+</head>
+<body>
+    <h1 id="id1">Title</h1>
+    <div class="class1" >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla consequuntur, obcaecati recusandae enim laboriosam eaque, sint incidunt. Perferendis mollitia incidunt blanditiis eveniet, fuga sapiente. Magni dicta maxime fugiat sint soluta?
+    </div>
+
+<script>
+  var oneId = document.getElementById('id1');
+  var firstClass = document.getElementsByClassName('class1')[0];
+
+  oneId.style.color = 'red';
+  firstClass.style.cssText = 'color: blue; font-size: 14px; text-decoration: underline;';
+
+  // firstClass.classList.add('newclass');
+  // console.log(getComputedStyle(firstClass));
+  //
+  // oneId.style.cssText = 'marginTop: 10px; background: red;';
+
+  // Для второго и третьего пункта задания. Что бы постоянно не брать элементы на каждой странице, универсальный код, который ищет их и делает то, что указано.
+  var allPage = document.querySelectorAll('*');
+
+  for (let key of allPage) {
+    if (key.hasAttribute('id')) {
+      key.style.cssText += ' margin-top: 10px; background: red;';
+    }
+    if (key.hasAttribute('class')) {
+      key.classList.add('newclass');
+      var check = 'find!';
+    }
+  }
+
+  if (check) {
+    console.log(getComputedStyle(document.querySelector('.newclass')));
+  }
+
+</script>
+</body>
+</html>
