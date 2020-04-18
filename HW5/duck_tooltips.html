@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    #wrapper {
+    width: 60%;
+    margin: auto;
+    }
+
+    .card {
+    display: flex;
+    justify-content: space-around;
+    margin: 40px;
+    // position: relative;
+    }
+
+    .description {
+    text-align: justify;
+    padding: 10px;
+    }
+
+    .img-container {
+    text-align: center;
+    }
+
+    img {
+    width: 200px;
+    }
+
+    span {
+    cursor: pointer;
+    }
+
+    .tooltip {
+    width: 200px;
+    text-align: justify;
+    position: fixed;
+    z-index: 9;
+    display: none;
+      }
+  </style>
+  <script>
+    window.addEventListener('load', doStuff);
+
+    function doStuff() {
+      var wrapper = document.querySelector('#wrapper');
+      wrapper.addEventListener('mouseover', showToolTip);
+      wrapper.addEventListener('mouseout', hideToolTip);
+
+      function hideToolTip() {
+        if (event.target.tagName === 'SPAN') {
+          var toolTip = event.target.parentElement.nextElementSibling;
+          toolTip.style.display = 'none';
+          toolTip.style.bottom = 'auto';
+          // console.log('out ' + toolTip.getAttribute('style'));
+        }
+      }
+
+      function showToolTip(event) {
+        var targetElement = event.target;
+        if (targetElement.tagName === 'SPAN') {
+          var toolTip = targetElement.parentElement.nextElementSibling;
+          var cardCoords = toolTip.parentElement.getBoundingClientRect();
+
+          var bottom = window.screen.height - event.screenY;
+          // console.log(event.screenY);
+          // toolTip.style.cssText = '';
+          toolTip.style.display = 'block';
+          toolTip.style.left = cardCoords.right + 'px';
+          toolTip.style.top = targetElement.parentElement.parentElement.getBoundingClientRect().top + 'px';
+          // toolTip.style.bottom = document.documentElement.clientHeight - toolTip.getBoundingClientRect().bottom + 'px';
+          console.log('over ' + toolTip.getAttribute('style'));
+
+          if (bottom <= toolTip.getBoundingClientRect().height) {
+            toolTip.style.top = 'auto';
+            toolTip.style.bottom = document.documentElement.clientHeight - targetElement.getBoundingClientRect().bottom + 'px';
+            console.log('event!' + toolTip.getAttribute('style'));
+          }
+
+          if (targetElement.parentElement.parentElement.getBoundingClientRect().top < 1) {
+            toolTip.style.top = targetElement.getBoundingClientRect().top + 'px';
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+
+<div id="wrapper">
+  <div class="card">
+    <p class="desciption">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam, assumenda, commodi consequatur dolor eaque enim excepturi in iusto magni neque placeat ratione rem sapiente tenetur veniam vitae voluptates! Beatae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eum expedita laboriosam nobis possimus sapiente? Assumenda, consectetur cum dolore iure modi nemo obcaecati omnis, perferendis praesentium qui quisquam unde voluptatibus.</p>
+    <div class="img-conatiner">
+        <img src="https://seeklogo.com/images/D/Duck_Hunt-logo-8044A0A3B6-seeklogo.com.png">
+        <span>Show tooltip</span>
+    </div>
+    <div class="tooltip">1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at deserunt inventore laboriosam optio sequi sunt ullam? Accusantium blanditiis consequuntur dignissimos harum mollitia odit sint, voluptatem. Deserunt iure maiores repudiandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequatur cupiditate dolores earum, eos illo natus rerum sint veritatis voluptas. Blanditiis ducimus facere impedit, maxime perspiciatis quasi qui ratione recusandae.</div>
+  </div>
+  <div class="card">
+    <p class="desciption">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam, assumenda, commodi consequatur dolor eaque enim excepturi in iusto magni neque placeat ratione rem sapiente tenetur veniam vitae voluptates! Beatae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eum expedita laboriosam nobis possimus sapiente? Assumenda, consectetur cum dolore iure modi nemo obcaecati omnis, perferendis praesentium qui quisquam unde voluptatibus.</p>
+    <div class="img-conatiner">
+        <img src="https://seeklogo.com/images/D/Duck_Hunt-logo-8044A0A3B6-seeklogo.com.png">
+        <span>Show tooltip</span>
+    </div>
+    <div class="tooltip">2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at deserunt inventore laboriosam optio sequi sunt ullam? Accusantium blanditiis consequuntur dignissimos harum mollitia odit sint, voluptatem. Deserunt iure maiores repudiandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequatur cupiditate dolores earum, eos illo natus rerum sint veritatis voluptas. Blanditiis ducimus facere impedit, maxime perspiciatis quasi qui ratione recusandae.</div>
+  </div>
+  <div class="card">
+    <p class="desciption">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam, assumenda, commodi consequatur dolor eaque enim excepturi in iusto magni neque placeat ratione rem sapiente tenetur veniam vitae voluptates! Beatae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eum expedita laboriosam nobis possimus sapiente? Assumenda, consectetur cum dolore iure modi nemo obcaecati omnis, perferendis praesentium qui quisquam unde voluptatibus.</p>
+    <div class="img-conatiner">
+        <img src="https://seeklogo.com/images/D/Duck_Hunt-logo-8044A0A3B6-seeklogo.com.png">
+        <span>Show tooltip</span>
+    </div>
+    <div class="tooltip">3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at deserunt inventore laboriosam optio sequi sunt ullam? Accusantium blanditiis consequuntur dignissimos harum mollitia odit sint, voluptatem. Deserunt iure maiores repudiandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequatur cupiditate dolores earum, eos illo natus rerum sint veritatis voluptas. Blanditiis ducimus facere impedit, maxime perspiciatis quasi qui ratione recusandae.</div>
+  </div>
+  <div class="card">
+    <p class="desciption">4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam, assumenda, commodi consequatur dolor eaque enim excepturi in iusto magni neque placeat ratione rem sapiente tenetur veniam vitae voluptates! Beatae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eum expedita laboriosam nobis possimus sapiente? Assumenda, consectetur cum dolore iure modi nemo obcaecati omnis, perferendis praesentium qui quisquam unde voluptatibus.</p>
+    <div class="img-conatiner">
+        <img src="https://seeklogo.com/images/D/Duck_Hunt-logo-8044A0A3B6-seeklogo.com.png">
+        <span>Show tooltip</span>
+    </div>
+    <div class="tooltip">4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at deserunt inventore laboriosam optio sequi sunt ullam? Accusantium blanditiis consequuntur dignissimos harum mollitia odit sint, voluptatem. Deserunt iure maiores repudiandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequatur cupiditate dolores earum, eos illo natus rerum sint veritatis voluptas. Blanditiis ducimus facere impedit, maxime perspiciatis quasi qui ratione recusandae.</div>
+  </div>
+  <div class="card">
+    <p class="desciption">5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam, assumenda, commodi consequatur dolor eaque enim excepturi in iusto magni neque placeat ratione rem sapiente tenetur veniam vitae voluptates! Beatae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eum expedita laboriosam nobis possimus sapiente? Assumenda, consectetur cum dolore iure modi nemo obcaecati omnis, perferendis praesentium qui quisquam unde voluptatibus.</p>
+    <div class="img-conatiner">
+        <img src="https://seeklogo.com/images/D/Duck_Hunt-logo-8044A0A3B6-seeklogo.com.png">
+        <span>Show tooltip</span>
+    </div>
+    <div class="tooltip">5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at deserunt inventore laboriosam optio sequi sunt ullam? Accusantium blanditiis consequuntur dignissimos harum mollitia odit sint, voluptatem. Deserunt iure maiores repudiandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequatur cupiditate dolores earum, eos illo natus rerum sint veritatis voluptas. Blanditiis ducimus facere impedit, maxime perspiciatis quasi qui ratione recusandae.</div>
+  </div>
+  <div class="card">
+    <p class="desciption">6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aperiam, assumenda, commodi consequatur dolor eaque enim excepturi in iusto magni neque placeat ratione rem sapiente tenetur veniam vitae voluptates! Beatae? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam eum expedita laboriosam nobis possimus sapiente? Assumenda, consectetur cum dolore iure modi nemo obcaecati omnis, perferendis praesentium qui quisquam unde voluptatibus.</p>
+    <div class="img-conatiner">
+        <img src="https://seeklogo.com/images/D/Duck_Hunt-logo-8044A0A3B6-seeklogo.com.png">
+        <span>Show tooltip</span>
+    </div>
+    <div class="tooltip">6 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur at deserunt inventore laboriosam optio sequi sunt ullam? Accusantium blanditiis consequuntur dignissimos harum mollitia odit sint, voluptatem. Deserunt iure maiores repudiandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consequatur cupiditate dolores earum, eos illo natus rerum sint veritatis voluptas. Blanditiis ducimus facere impedit, maxime perspiciatis quasi qui ratione recusandae.</div>
+  </div>
+</div>
+
+
+</body>
+</html>
