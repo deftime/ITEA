@@ -1,0 +1,299 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  margin: 25px 0;
+}
+
+.wrapper {
+  width: 500px;
+  margin: 0 auto;
+  padding: 50px 20px 20px 20px;
+}
+
+.flex-down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-right {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.wrap-big {
+  width: 90%;
+  height: 500px;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.display {
+  font-family: sans-serif;
+  font-size: 45px;
+  margin: 60px auto 20px auto;
+  border: 1px solid black;
+  height: 50px;
+  width: 95%;
+  text-align: center;
+  padding: 5px;
+}
+
+.hint {
+  text-align: center;
+  margin: 0 0 10px 0;
+}
+
+.buttons {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto 20px auto;
+}
+
+.buttons button {
+  display: inline-block;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  background-color: green;
+  color: white;
+  font-size: 15px;
+  /* width: 80px; */
+  margin-bottom: 5px;
+  transition: 0.1s;
+}
+
+.buttons button:active {
+  transform: scale(0.9);
+}
+
+.buttons button[disabled],
+#stop[disabled] {
+  background-color: grey;
+  transform: none;
+}
+
+.buttons .spec-butt {
+  width: 120px;
+  background-color: orange;
+}
+
+#stop {
+  background-color: orange;
+}
+
+.buttons .reset {
+  background-color: red;
+}
+
+.listIn {
+  width: 100%;
+  height: 30px;
+  background-color: #e5e5e5;
+  margin-bottom: 20px;
+  overflow-y: auto;
+  text-align: center;
+  font-size: 25px;
+  padding: 15px 0;
+}
+
+.listIn ul {
+  margin: 0 auto;
+  font-size: 30px;
+  width: 200px;
+}
+
+.listIn .innerBlock {
+  width: 450px;
+  height: 40px;
+  margin: 20px auto;
+  border: 3px solid black;
+  background-color: white;
+  text-align: center;
+  padding: 5px;
+}
+
+form {
+  padding: 20px 0;
+  width: 300px;
+  margin: 0 auto;
+}
+
+input {
+  width: 250px;
+  height: 40px;
+  padding: 5px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  /* text-align: center; */
+}
+
+input[type=submit] {
+  width: 262px;
+  border: none;
+}
+
+.modal {
+  position: absolute;
+  display: none;
+  width: 300px;
+  height: 30px;
+  border: 1px solid black;
+  font-size: 25px;
+  text-align: center;
+  padding: 10px;
+  bottom: 300px;
+  background-color: white;
+  box-shadow:  0 0 10px rgba(0,0,0,0.5);
+}
+
+.modal .close {
+  font-size: 17px;
+  text-align: right;
+  position: absolute;
+  left: 310px;
+  bottom: 35px;
+  cursor: pointer;
+  font-family: Arial;
+}
+
+.icon {
+  width: 25px;
+  margin-left: 10px;
+}
+
+.blocks-wrap {
+  width: 1150px;
+  margin: 0 auto;
+}
+
+.blocks-wrap .square {
+  display: inline-block;
+  width: 200px;
+  /* height: 200px; */
+  padding: 80px 0;
+  margin-right: 25px;
+  background-color: green;
+  text-align: center;
+}
+
+.blocks-wrap .sq-title {
+  display: inline-block;
+  font-size: 20px;
+  color: white;
+}
+
+.opener {
+  position: relative;
+  z-index: 5;
+  display: block;
+  text-decoration: none;
+  font-family: sans-serif;
+  font-size: 20px;
+  width: 470px;
+  padding: 10px 20px 10px 10px;
+  box-shadow: 0 0 10px grey;
+  background-color: white;
+}
+
+.opener span {
+  float: right;
+  font-weight: bold;
+  transition: 1s;
+}
+
+.opener-block {
+  width: 478px;
+  padding: 10px;
+  border: 1px solid black;
+  overflow: hidden;
+  height: 0;
+  transform: translateY(-25px);
+  transition: 1s;
+}
+
+.move {
+  height: 120px;
+  transform: translateY(0px);
+}
+
+.rotate {
+  transform: rotate(90deg);
+}
+
+.tooltips {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.tooltips span {
+  margin-right: 15px;
+}
+
+.tip {
+  position: fixed;
+  display: none;
+  width: 200px;
+  padding: 3px 15px;
+  border: 1px dotted black;
+  font-size: 15px;
+  font-weight: normal;
+  background-color: white;
+}
+
+.back {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: green;
+  border-radius: 50%;
+  font-size: 50px;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 0 10px black;
+  cursor: pointer;
+  opacity: 0;
+  transition: 1s;
+}
+
+.movingSquare {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: green;
+}
+
+.movingRound {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: tomato;
+}
+
+.wrap-rel {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
